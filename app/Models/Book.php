@@ -7,4 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Book extends Model
 {
     //
+    public function borrowedBooks()
+    {
+        return $this->hasMany(BorrowedBook::class, 'book_id');
+    }
+
 }
