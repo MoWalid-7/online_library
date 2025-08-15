@@ -9,15 +9,6 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    // protected function authenticated(Request $request, $user)
-    // {
-    //     if ($user->role === 'admin') {
-    //         return redirect()->route('admin.dashboard');
-    //     } else {
-    //         return redirect()->route('student.dashboard');
-    //     }
-    // }
-
     // Dashboard
     public function dashboard() {
         return view('admin.dashboard');
@@ -113,7 +104,7 @@ class AdminController extends Controller
     }
 
     public function storeBorrowedBook(Request $request) {
-        BorrowedBook::create($request->only('student_id','book_id'));
+        BorrowedBook::create($request->only('user_id','book_id'));
         return redirect()->route('admin.borrowed_books.index');
     }
 
@@ -126,7 +117,7 @@ class AdminController extends Controller
 
     public function updateBorrowedBook(Request $request, $id) {
         $borrowedBook = BorrowedBook::findOrFail($id);
-        $borrowedBook->update($request->only('student_id','book_id'));
+        $borrowedBook->update($request->only('user_id','book_id'));
         return redirect()->route('admin.borrowed_books.index');
     }
 
