@@ -1,3 +1,51 @@
+<<<<<<< HEAD
+{{-- resources/views/admin/dashboard.blade.php --}}
+<x-app-layout title="Admin Dashboard">
+    <x-slot name="header">Dashboard</x-slot>
+
+    {{-- Welcome Banner --}}
+    <div style="background:linear-gradient(135deg,rgba(245,158,11,0.12),rgba(217,119,6,0.05));border:1px solid rgba(245,158,11,0.15);border-radius:20px;padding:2rem;margin-bottom:2rem;display:flex;align-items:center;gap:1.5rem;">
+        <div style="width:60px;height:60px;background:linear-gradient(135deg,#f59e0b,#d97706);border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:1.75rem;flex-shrink:0;box-shadow:0 8px 20px rgba(245,158,11,0.3);">👋</div>
+        <div>
+            <h2 style="font-size:1.4rem;font-weight:700;color:#f1f5f9;margin:0 0 0.25rem;">Welcome back, {{ auth()->user()->name }}!</h2>
+            <p style="color:#64748b;margin:0;font-size:0.9rem;">Here's what's happening in your library today.</p>
+        </div>
+    </div>
+
+    {{-- Quick Access Cards --}}
+    <h3 style="font-size:0.8rem;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1rem;">Quick Access</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;">
+        <a href="{{ route('books.index') }}" class="stat-card">
+            <div class="stat-icon">📚</div>
+            <div>
+                <div style="font-size:0.75rem;color:#64748b;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;">Manage</div>
+                <div style="font-size:1.05rem;font-weight:700;color:#f1f5f9;margin-top:2px;">Books</div>
+            </div>
+        </a>
+        <a href="{{ route('admin.borrowed_books.index') }}" class="stat-card">
+            <div class="stat-icon">🔄</div>
+            <div>
+                <div style="font-size:0.75rem;color:#64748b;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;">Track</div>
+                <div style="font-size:1.05rem;font-weight:700;color:#f1f5f9;margin-top:2px;">Borrowed Books</div>
+            </div>
+        </a>
+        <a href="{{ route('admin.searchStudent') }}" class="stat-card">
+            <div class="stat-icon">🔍</div>
+            <div>
+                <div style="font-size:0.75rem;color:#64748b;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;">Find</div>
+                <div style="font-size:1.05rem;font-weight:700;color:#f1f5f9;margin-top:2px;">Search Students</div>
+            </div>
+        </a>
+        <a href="{{ route('admin.profile') }}" class="stat-card">
+            <div class="stat-icon">👤</div>
+            <div>
+                <div style="font-size:0.75rem;color:#64748b;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;">Edit</div>
+                <div style="font-size:1.05rem;font-weight:700;color:#f1f5f9;margin-top:2px;">My Profile</div>
+            </div>
+        </a>
+    </div>
+</x-app-layout>
+=======
 <!-- resources/views/admin/dashboard.blade.php -->
 <x-layouts.app title="Admin Dashboard">
     <h1 class="text-2xl font-bold mb-4">Welcome Admin!</h1>
@@ -8,3 +56,4 @@
         <a href="{{ route('admin.profile') }}" class="p-4 bg-white shadow rounded">Edit Profile</a>
     </div>
 </x-layouts.app>
+>>>>>>> origin/online_library

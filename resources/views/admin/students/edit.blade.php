@@ -1,5 +1,9 @@
 <!-- resources/views/admin/students/edit.blade.php -->
+<<<<<<< HEAD
+<x-app-layout title="Edit Student">
+=======
 <x-layouts.app title="Edit Student">
+>>>>>>> origin/online_library
     <h1 class="text-2xl font-bold mb-4">Edit Student</h1>
 
     <form method="POST" action="{{ route('students.update', $student->id) }}">
@@ -15,4 +19,8 @@
         </div>
         <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Update</button>
     </form>
+<<<<<<< HEAD
+</x-app-layout>
+=======
 </x-layouts.app>
+>>>>>>> origin/online_library

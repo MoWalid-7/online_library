@@ -28,6 +28,9 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+<<<<<<< HEAD
+        return redirect()->route('dashboard');
+=======
         if (auth()->user()->role === 'admin') {
             return redirect()->route('admin.dashboard');
         } elseif (auth()->user()->role === 'student') {
@@ -35,6 +38,7 @@ class AuthenticatedSessionController extends Controller
         }
 
         return redirect('/');
+>>>>>>> origin/online_library
     }
 
 
