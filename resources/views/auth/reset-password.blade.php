@@ -1,4 +1,5 @@
 <x-guest-layout>
+<<<<<<< HEAD
     <div style="text-align: center; margin-bottom: 2rem;">
         <h2 style="font-size:1.5rem;font-weight:700;color:#f1f5f9;margin:0 0 0.5rem;">Reset Your Password</h2>
         <p style="color:#94a3b8;font-size:0.9rem;margin:0;">Please enter your new password to regain access.</p>
@@ -7,6 +8,8 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
+=======
+>>>>>>> origin/online_library
     <form method="POST" action="{{ route('password.store') }}">
         @csrf
 
@@ -14,13 +17,20 @@
         <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
         <!-- Email Address -->
+<<<<<<< HEAD
         <div class="form-group">
             <label class="form-label" for="email">{{ __('Email Address') }}</label>
             <input id="email" class="form-input" type="email" name="email" value="{{ old('email', $request->email) }}" required autofocus autocomplete="username" />
+=======
+        <div>
+            <x-input-label for="email" :value="__('Email')" />
+            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus autocomplete="username" />
+>>>>>>> origin/online_library
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Password -->
+<<<<<<< HEAD
         <div class="form-group">
             <label class="form-label" for="password">{{ __('New Password') }}</label>
             <div style="position:relative;">
@@ -33,10 +43,16 @@
                     </svg>
                 </button>
             </div>
+=======
+        <div class="mt-4">
+            <x-input-label for="password" :value="__('Password')" />
+            <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+>>>>>>> origin/online_library
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
         <!-- Confirm Password -->
+<<<<<<< HEAD
         <div class="form-group">
             <label class="form-label" for="password_confirmation">{{ __('Confirm New Password') }}</label>
             <div style="position:relative;">
@@ -71,3 +87,22 @@
             `<path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>`;
     }
 </script>
+=======
+        <div class="mt-4">
+            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+
+            <x-text-input id="password_confirmation" class="block mt-1 w-full"
+                                type="password"
+                                name="password_confirmation" required autocomplete="new-password" />
+
+            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+        </div>
+
+        <div class="flex items-center justify-end mt-4">
+            <x-primary-button>
+                {{ __('Reset Password') }}
+            </x-primary-button>
+        </div>
+    </form>
+</x-guest-layout>
+>>>>>>> origin/online_library

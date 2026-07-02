@@ -2,7 +2,10 @@
 
 // app/Http/Controllers/StudentController.php
 namespace App\Http\Controllers;
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/online_library
 use Illuminate\Http\Request;
 
 
@@ -15,6 +18,7 @@ class StudentController extends Controller
         return view('student.dashboard');
     }
 
+<<<<<<< HEAD
     public function books(\Illuminate\Http\Request $request)
     {
         $query = clone Book::query();
@@ -23,6 +27,11 @@ class StudentController extends Controller
                 ->orWhere('author', 'like', "%{$search}%");
         }
         $books = $query->latest()->get();
+=======
+    public function books()
+    {
+        $books = Book::all(); // جلب كل الكتب من قاعدة البيانات
+>>>>>>> origin/online_library
         return view('student.books', compact('books'));
     }
 
@@ -36,6 +45,7 @@ class StudentController extends Controller
         auth()->user()->update($request->only('name', 'email'));
         return redirect()->route('student.profile');
     }
+<<<<<<< HEAD
 
     public function showBook($id)
     {
@@ -98,3 +108,7 @@ class StudentController extends Controller
         return back()->with('success', 'تم إضافة تعليقك/تقييمك بنجاح!');
     }
 }
+=======
+}
+
+>>>>>>> origin/online_library

@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
+=======
+>>>>>>> origin/online_library
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+<<<<<<< HEAD
 @layer base {
     * {
         box-sizing: border-box;
@@ -381,3 +385,5 @@
     background-size: 200% 200%;
     animation: gradientShift 8s ease infinite;
 }
+=======
+>>>>>>> origin/online_library

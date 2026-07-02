@@ -15,6 +15,7 @@
         <!-- Password -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />
+<<<<<<< HEAD
             <div style="position:relative;">
                 <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" style="padding-right:2.75rem;" />
                 <button type="button" onclick="togglePassword('password','eye-login')" tabindex="-1"
@@ -25,6 +26,14 @@
                     </svg>
                 </button>
             </div>
+=======
+
+            <x-text-input id="password" class="block mt-1 w-full"
+                            type="password"
+                            name="password"
+                            required autocomplete="current-password" />
+
+>>>>>>> origin/online_library
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
@@ -38,9 +47,15 @@
 
         <div class="flex items-center justify-end mt-4">
             @if (Route::has('password.request'))
+<<<<<<< HEAD
             <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
                 {{ __('Forgot your password?') }}
             </a>
+=======
+                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
+                    {{ __('Forgot your password?') }}
+                </a>
+>>>>>>> origin/online_library
             @endif
 
             <x-primary-button class="ms-3">
@@ -48,6 +63,7 @@
             </x-primary-button>
         </div>
     </form>
+<<<<<<< HEAD
 
     <p style="text-align:center; margin-top:1.5rem; font-size:0.875rem; color:#64748b;">
         Don't have an account?
@@ -66,3 +82,6 @@
             `<path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>`;
     }
 </script>
+=======
+</x-guest-layout>
+>>>>>>> origin/online_library

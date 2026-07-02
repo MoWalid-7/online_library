@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+<<<<<<< HEAD
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -9,10 +10,20 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable implements FilamentUser
+=======
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
+
+class User extends Authenticatable
+>>>>>>> origin/online_library
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
+<<<<<<< HEAD
     protected $fillable = [
         'name',
         'email',
@@ -52,10 +63,30 @@ class User extends Authenticatable implements FilamentUser
     /**
      * Books borrowed by this user (for students).
      */
+=======
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var list<string>
+     */
+// User.php
+
+
+
+
+    protected $fillable = [
+        'id',
+        'name',
+        'email',
+        'password',
+        'role', // لو عندك عمود role لتحديد admin/student
+    ];
+>>>>>>> origin/online_library
     public function borrowedBooks()
     {
         return $this->hasMany(BorrowedBook::class, 'user_id');
     }
+<<<<<<< HEAD
 
     /**
      * Reviews left by this user.
@@ -64,4 +95,21 @@ class User extends Authenticatable implements FilamentUser
     {
         return $this->hasMany(Review::class, 'user_id');
     }
+=======
+    
+
+    // Book.php
+    public function borrowers() {
+        return $this->hasMany(BorrowedBook::class);
+    }
+
+    // BorrowedBook.php
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
+    public function book() {
+        return $this->belongsTo(Book::class);
+    }
+
+>>>>>>> origin/online_library
 }

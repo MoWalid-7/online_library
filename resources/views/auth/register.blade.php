@@ -19,6 +19,7 @@
         <!-- Password -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />
+<<<<<<< HEAD
             <div style="position:relative;">
                 <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" style="padding-right:2.75rem;" />
                 <button type="button" onclick="togglePassword('password','eye-reg-pass')" tabindex="-1"
@@ -29,12 +30,21 @@
                     </svg>
                 </button>
             </div>
+=======
+
+            <x-text-input id="password" class="block mt-1 w-full"
+                            type="password"
+                            name="password"
+                            required autocomplete="new-password" />
+
+>>>>>>> origin/online_library
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
         <!-- Confirm Password -->
         <div class="mt-4">
             <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+<<<<<<< HEAD
             <div style="position:relative;">
                 <x-text-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" style="padding-right:2.75rem;" />
                 <button type="button" onclick="togglePassword('password_confirmation','eye-reg-conf')" tabindex="-1"
@@ -56,6 +66,14 @@
                 <option value="author" {{ old('role') === 'author' ? 'selected' : '' }}>Author (Publisher)</option>
             </select>
             <x-input-error :messages="$errors->get('role')" class="mt-2" />
+=======
+
+            <x-text-input id="password_confirmation" class="block mt-1 w-full"
+                            type="password"
+                            name="password_confirmation" required autocomplete="new-password" />
+
+            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+>>>>>>> origin/online_library
         </div>
 
         <div class="flex items-center justify-end mt-4">
@@ -69,6 +87,7 @@
         </div>
     </form>
 </x-guest-layout>
+<<<<<<< HEAD
 
 <script>
     function togglePassword(inputId, iconId) {
@@ -81,3 +100,5 @@
             `<path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>`;
     }
 </script>
+=======
+>>>>>>> origin/online_library
