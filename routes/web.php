@@ -1,11 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\BorrowedBookController;
-<<<<<<< HEAD
 use App\Http\Controllers\AuthorController;
 
 // auth routes
@@ -22,34 +22,17 @@ Route::get('/', function (\Illuminate\Http\Request $request) {
     return view('welcome', compact('books'));
 })->name('home');
 
-// بعد تسجيل الدخول التوجيه حسب الدور
-Route::get('/dashboard', function () {
-    if (auth()->user()->role === 'admin') {
-        return redirect('/admin');
-    } elseif (auth()->user()->role === 'author') {
-        return redirect()->route('author.dashboard');
-=======
-
-// auth routes
-require __DIR__.'/auth.php';
-
-// صفحة الترحيب
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
 /*use App\Http\Controllers\AdminController;
 Route::get('/admin', [AdminController::class, 'index']);
  */
 // بعد تسجيل الدخول التوجيه حسب الدور
 Route::get('/dashboard', function () {
-    if (auth()->user()->role === 'admin') {
+    if (Auth::check() && Auth::user()->role === 'admin') {
         return redirect()->route('admin.dashboard');
->>>>>>> origin/online_library
     }
     return redirect()->route('student.dashboard');
 })->middleware('auth')->name('dashboard');
 
-<<<<<<< HEAD
 // روتات المؤلف (Author)
 Route::middleware(['auth', 'author'])->prefix('author')->group(function () {
     Route::get('/dashboard', [AuthorController::class, 'dashboard'])->name('author.dashboard');
@@ -62,11 +45,9 @@ Route::middleware(['auth', 'author'])->prefix('author')->group(function () {
 });
 
 // روتات الأدمن القديمة (لو حابب تحتفظ بيها للإدارة المخصصة بعيداً عن Filament)
-Route::middleware(['auth', 'admin'])->prefix('admin-old')->group(function () {
-=======
+// Route::middleware(['auth', 'admin'])->prefix('admin-old')->group(function () {});
 // روتات الأدمن
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
->>>>>>> origin/online_library
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 
     // Books CRUD
@@ -92,16 +73,11 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
 Route::middleware(['auth'])->prefix('student')->group(function () {
     Route::get('/dashboard', [StudentController::class, 'dashboard'])->name('student.dashboard');
     Route::get('/books', [StudentController::class, 'books'])->name('student.books');
-<<<<<<< HEAD
-
     // Book Features routes
     Route::get('/books/{id}', [StudentController::class, 'showBook'])->name('student.books.show');
     Route::get('/books/{id}/download', [StudentController::class, 'downloadBook'])->name('student.books.download');
     Route::get('/books/{id}/read', [StudentController::class, 'readBook'])->name('student.books.read');
     Route::post('/books/{id}/review', [StudentController::class, 'storeReview'])->name('student.books.review.store');
-
-=======
->>>>>>> origin/online_library
     Route::get('/profile', [StudentController::class, 'editProfile'])->name('student.profile');
     Route::post('/profile', [StudentController::class, 'updateProfile'])->name('student.profile.update');
 });

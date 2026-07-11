@@ -1,9 +1,5 @@
 <!-- resources/views/admin/students/create.blade.php -->
-<<<<<<< HEAD
 <x-app-layout title="Add New Student">
-=======
-<x-layouts.app title="Add New Student">
->>>>>>> origin/online_library
     <h1 class="text-2xl font-bold mb-4">Add New Student</h1>
 
     <form method="POST" action="{{ route('students.store') }}">
@@ -22,8 +18,4 @@
         </div>
         <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Save</button>
     </form>
-<<<<<<< HEAD
 </x-app-layout>
-=======
-</x-layouts.app>
->>>>>>> origin/online_library

@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model
 {
-<<<<<<< HEAD
     protected $fillable = [
         'title',
         'author',
@@ -37,15 +36,11 @@ class Book extends Model
     /**
      * Borrowed book records for this book.
      */
-=======
-    //
->>>>>>> origin/online_library
     public function borrowedBooks()
     {
         return $this->hasMany(BorrowedBook::class, 'book_id');
     }
 
-<<<<<<< HEAD
     /**
      * Reviews for this book.
      */
@@ -61,6 +56,4 @@ class Book extends Model
     {
         return $this->reviews()->avg('rating') ?: 0;
     }
-=======
->>>>>>> origin/online_library
 }

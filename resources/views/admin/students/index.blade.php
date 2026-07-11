@@ -1,9 +1,5 @@
 <!-- resources/views/admin/students/index.blade.php -->
-<<<<<<< HEAD
 <x-app-layout title="Manage Students">
-=======
-<x-layouts.app title="Manage Students">
->>>>>>> origin/online_library
     <div class="flex justify-between items-center mb-4">
         <h1 class="text-2xl font-bold">Students</h1>
         <a href="{{ route('students.create') }}" class="bg-green-500 text-white px-4 py-2 rounded">Add New Student</a>
@@ -36,8 +32,4 @@
             @endforeach
         </tbody>
     </table>
-<<<<<<< HEAD
 </x-app-layout>
-=======
-</x-layouts.app>
->>>>>>> origin/online_library
