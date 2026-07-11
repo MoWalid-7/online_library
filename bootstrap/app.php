@@ -6,7 +6,6 @@ use Illuminate\Foundation\Configuration\Middleware;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
-<<<<<<< HEAD
         web: __DIR__ . '/../routes/web.php',
         commands: __DIR__ . '/../routes/console.php',
         health: '/up',
@@ -21,14 +20,9 @@ return Application::configure(basePath: dirname(__DIR__))
             'student' => \App\Http\Middleware\StudentMiddleware::class,
             'author'  => \App\Http\Middleware\AuthorMiddleware::class,
         ]);
-=======
-        web: __DIR__.'/../routes/web.php',
-        commands: __DIR__.'/../routes/console.php',
-        health: '/up',
-    )
+    })
     ->withMiddleware(function (Middleware $middleware): void {
-        //
->>>>>>> origin/online_library
+        // Additional middleware may be registered here.
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

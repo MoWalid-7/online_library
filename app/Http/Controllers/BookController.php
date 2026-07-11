@@ -2,15 +2,11 @@
 
 namespace App\Http\Controllers;
 
-<<<<<<< HEAD
 use App\Models\Book;
-=======
->>>>>>> origin/online_library
 use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
-<<<<<<< HEAD
     public function index()
     {
         $books = Book::all();
@@ -70,12 +66,10 @@ class BookController extends Controller
         return redirect()->route('books.index')->with('success', 'Book updated successfully.');
     }
 
-    public function destroy(Book $book)
+    public function destroy($id)
     {
+        $book = Book::findOrFail($id);
         $book->delete();
         return redirect()->route('books.index')->with('success', 'Book deleted successfully.');
     }
-=======
-    //
->>>>>>> origin/online_library
 }

@@ -2,14 +2,9 @@
 
 // app/Http/Controllers/StudentController.php
 namespace App\Http\Controllers;
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/online_library
 use Illuminate\Http\Request;
-
-
 use App\Models\Book;
+use Illuminate\Support\Facades\Auth;
 
 class StudentController extends Controller
 {
@@ -18,8 +13,7 @@ class StudentController extends Controller
         return view('student.dashboard');
     }
 
-<<<<<<< HEAD
-    public function books(\Illuminate\Http\Request $request)
+    public function book(Request $request)
     {
         $query = clone Book::query();
         if ($search = $request->input('search')) {
@@ -27,11 +21,10 @@ class StudentController extends Controller
                 ->orWhere('author', 'like', "%{$search}%");
         }
         $books = $query->latest()->get();
-=======
+    }
     public function books()
     {
         $books = Book::all(); // جلب كل الكتب من قاعدة البيانات
->>>>>>> origin/online_library
         return view('student.books', compact('books'));
     }
 
@@ -42,18 +35,17 @@ class StudentController extends Controller
 
     public function updateProfile(Request $request)
     {
-        auth()->user()->update($request->only('name', 'email'));
+        Auth::user()->update($request->only('name', 'email'));
         return redirect()->route('student.profile');
     }
-<<<<<<< HEAD
 
-    public function showBook($id)
+    public function showBook(int $id)
     {
         $book = Book::with('reviews.user')->findOrFail($id);
         return view('student.books.show', compact('book'));
     }
 
-    public function downloadBook($id)
+    public function downloadBook(int $id)
     {
         $book = Book::findOrFail($id);
 
@@ -63,13 +55,13 @@ class StudentController extends Controller
 
         if ($book->file_path && \Illuminate\Support\Facades\Storage::disk('public')->exists($book->file_path)) {
             $book->decrement('available_copies');
-            return \Illuminate\Support\Facades\Storage::disk('public')->download($book->file_path, $book->title . '.pdf');
+            return response()->download(\Illuminate\Support\Facades\Storage::disk('public')->path($book->file_path), $book->title . '.pdf');
         }
 
         return back()->with('error', 'ملف الكتاب غير موجود!');
     }
 
-    public function readBook($id)
+    public function readBook(int $id)
     {
         $book = Book::findOrFail($id);
 
@@ -80,7 +72,7 @@ class StudentController extends Controller
         return view('student.books.read', compact('book'));
     }
 
-    public function storeReview(Request $request, $id)
+    public function storeReview(Request $request, int $id)
     {
         $book = Book::findOrFail($id);
 
@@ -96,11 +88,11 @@ class StudentController extends Controller
         // إذا أدخل تقييماً جديداً، نقوم بحذف أي تقييم سابق له على نفس الكتاب
         // حتى لا يتم حسابه أكثر من مرة في المتوسط
         if (!empty($validated['rating'])) {
-            $book->reviews()->where('user_id', auth()->id())->update(['rating' => null]);
+            $book->reviews()->where('user_id', Auth::id())->update(['rating' => null]);
         }
 
         $book->reviews()->create([
-            'user_id' => auth()->id(),
+            'user_id' => Auth::id(),
             'rating'  => $validated['rating'] ?? null,
             'comment' => $validated['comment'] ?? null,
         ]);
@@ -108,7 +100,3 @@ class StudentController extends Controller
         return back()->with('success', 'تم إضافة تعليقك/تقييمك بنجاح!');
     }
 }
-=======
-}
-
->>>>>>> origin/online_library
